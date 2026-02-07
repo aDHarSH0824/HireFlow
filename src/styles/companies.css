@@ -1,0 +1,13 @@
+/* Company Logos Section */
+.companies {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .companies img {
+    height: 40px;
+    opacity: 0.8;
+  }
+  

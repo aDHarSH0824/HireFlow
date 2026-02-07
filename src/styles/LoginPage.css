@@ -1,0 +1,88 @@
+/* Scope styles to LoginPage only */
+.login-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container for the form */
+  .login-page .container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .login-page .container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Form Input Groups */
+  .login-page .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .login-page .input-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .login-page .input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .login-page .input-group input:focus {
+    border-color: #5a2d82;
+  }
+  
+  /* Submit Button */
+  .login-page button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #5a2d82;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-page button:hover {
+    background-color: #451e62;
+  }
+  
+  /* Link to Register */
+  .login-page p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .login-page p a {
+    color: #5a2d82;
+    text-decoration: none;
+  }
+  
+  .login-page p a:hover {
+    text-decoration: underline;
+  }
+  

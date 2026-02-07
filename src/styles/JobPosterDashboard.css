@@ -1,0 +1,210 @@
+.job-poster-dashboard {
+    padding: 30px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .job-poster-dashboard h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .job-poster-dashboard p {
+    font-size: 1rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  
+  th {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  td select {
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  td select:focus {
+    outline: none;
+    border-color: #0056b3;
+  }
+  
+  td select option {
+    background-color: #f9f9f9;
+  }
+  
+  .job-poster-dashboard .message {
+    color: green;
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+  
+  .job-poster-dashboard table td span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .status-pending {
+    color: #f39c12;
+  }
+  
+  .status-accepted {
+    color: #27ae60;
+  }
+  
+  .status-rejected {
+    color: #e74c3c;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #16a085;
+  }
+  .job-poster-dashboard {
+    padding: 30px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.job-poster-dashboard h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.job-poster-dashboard p {
+    font-size: 1rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+th {
+    background-color: #0056b3;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td select {
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+td select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+td select option {
+    background-color: #f9f9f9;
+}
+
+.job-poster-dashboard .message {
+    color: green;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.job-poster-dashboard table td span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.status-accepted {
+    color: #27ae60;
+}
+
+.status-rejected {
+    color: #e74c3c;
+}
+
+.message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #16a085;
+}
+
+/* New styles for the "Download Resume" button */
+.download-resume-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.download-resume-btn:hover {
+    background-color: #004494;
+}
+
+.download-resume-btn:focus {
+    outline: none;
+    border-color: #003366;
+}

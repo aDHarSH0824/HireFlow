@@ -1,0 +1,97 @@
+/* Styling for the entire page */
+.job-page {
+  padding: 40px 20px;
+  font-family: 'Roboto', Arial, sans-serif; /* Clean, modern font */
+  background: linear-gradient(135deg, #eef2f3, #d9e9f6); /* Subtle gradient background */
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Page Title Styling */
+.job-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50; /* Deep gray for professional look */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Message Styling */
+.job-page p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #e74c3c; /* Red for error or success messages */
+}
+
+/* Job Listings Container */
+.job-listings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between job cards */
+}
+
+/* Job Card Styling */
+.job-card {
+  background-color: #fff; /* White background for contrast */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 300px; /* Fixed width for consistency */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover Effect for Job Cards */
+.job-card:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Job Card Title Styling */
+.job-card h3 {
+  font-size: 1.5rem;
+  color: #34495e; /* Darker gray for job title */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Job Card Details Styling */
+.job-card p {
+  font-size: 1rem;
+  color: #555; /* Neutral color for details */
+  margin-bottom: 10px;
+  line-height: 1.4; /* Better readability */
+}
+
+/* Apply Button Styling */
+.apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3498db; /* Blue for primary action */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 8px; /* Rounded corners */
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+/* Apply Button Hover Effect */
+.apply-button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-3px); /* Slight lift */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .job-card {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .job-page h1 {
+    font-size: 2rem; /* Smaller title for mobile devices */
+  }
+}

@@ -1,0 +1,53 @@
+/* Scoped styles for ApplicationStatusPage */
+.application-status-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  table td {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .status-pending {
+    color: orange;
+  }
+  
+  .status-accepted {
+    color: green;
+  }
+  
+  .status-rejected {
+    color: red;
+  }
+  

@@ -1,0 +1,88 @@
+/* Register.css */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light grey background */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background: #fff; /* White background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333; /* Dark text */
+}
+
+.message {
+  margin-bottom: 1rem;
+  color: green;
+  font-size: 0.9rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555; /* Medium-dark text */
+  margin-bottom: 0.5rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #007bff; /* Focus blue */
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #007bff; /* Primary blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.text-muted {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #6c757d; /* Muted text */
+}
+
+.text-muted a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-muted a:hover {
+  text-decoration: underline;
+}

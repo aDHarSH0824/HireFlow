@@ -1,0 +1,89 @@
+/* Navbar container */
+nav {
+  background-color: #1e1e1e; /* Dark background similar to Pornhub's */
+  padding: 15px 20px; /* Add padding to navbar */
+  color: white; /* White text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow navbar items to wrap on small screens */
+}
+
+/* Logo styling */
+nav .logo {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex: 1; /* Take up extra space for logo */
+  color: #ffb200; /* Vibrant yellow for the logo */
+}
+
+/* Unordered list for navigation links */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px; /* Increase space between items */
+  justify-content: center;
+  flex: 2; /* Allow the list to take up remaining space */
+}
+
+/* List item styling */
+nav ul li {
+  display: inline-block;
+}
+
+/* Link styling */
+nav ul li a {
+  color: white; /* White text for links */
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+nav ul li a:hover {
+  background-color: #f1a400; /* Bright yellow/orange on hover */
+  color: white; /* White text on hover */
+  border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+/* Button styling for Logout */
+nav .nav-link {
+  color: white;
+  background-color: #eb5b00; /* Bright orange for logout */
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav .nav-link:hover {
+  background-color: #f1a400; /* Darker orange on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack the items vertically on small screens */
+    gap: 10px; /* Reduce space between items */
+  }
+
+  nav ul li {
+    text-align: center; /* Center the items when stacked */
+  }
+
+  nav .logo {
+    flex: 1 100%; /* Allow logo to take full width */
+    text-align: center; /* Center the logo */
+  }
+
+  nav .nav-link {
+    width: 100%; /* Make logout button full width on small screens */
+    text-align: center; /* Center text in the button */
+  }
+}

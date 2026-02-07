@@ -1,0 +1,32 @@
+/* Main Section */
+.main-section {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .main-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .main-section .features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    background-color: #FFF1DB;
+  }
+  .feature-card:hover {
+    width: 165px;
+    background-color: #D4BDAC;
+  }
+  
