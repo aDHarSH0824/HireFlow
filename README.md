@@ -1,4 +1,4 @@
-# HireWay - Job Portal Application
+# HireFlow - Job Portal Application
 
 A comprehensive job portal application with React frontend and PHP backend that connects job seekers with employers.
 
