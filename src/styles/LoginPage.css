@@ -1,88 +1,122 @@
-/* Scope styles to LoginPage only */
+/* Login Page styling */
 .login-page {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Container for the form */
-  .login-page .container {
-    max-width: 400px;
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .login-page .container h2 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Form Input Groups */
-  .login-page .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .login-page .input-group label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .login-page .input-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  .login-page .input-group input:focus {
-    border-color: #5a2d82;
-  }
-  
-  /* Submit Button */
-  .login-page button {
-    width: 100%;
-    padding: 10px 15px;
-    background-color: #5a2d82;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-page button:hover {
-    background-color: #451e62;
-  }
-  
-  /* Link to Register */
-  .login-page p {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .login-page p a {
-    color: #5a2d82;
-    text-decoration: none;
-  }
-  
-  .login-page p a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 40px 20px;
+  background-color: var(--bg-primary);
+}
+
+/* Glassmorphic Container */
+.login-page .container {
+  max-width: 440px;
+  width: 100%;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.login-page .container h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #fff, var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-page .message {
+  padding: 12px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-sm);
+  color: var(--accent-emerald);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Form input group */
+.login-page .input-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.login-page .input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.login-page .input-group input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.login-page .input-group input:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Submit Button */
+.login-page button.btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transition: var(--transition-fast);
+  margin-top: 10px;
+}
+
+.login-page button.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--primary-glow);
+  filter: brightness(1.1);
+}
+
+.login-page button.btn:active {
+  transform: translateY(0);
+}
+
+/* Bottom Nav options */
+.login-page p {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.login-page p a {
+  color: var(--primary);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.login-page p a:hover {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}

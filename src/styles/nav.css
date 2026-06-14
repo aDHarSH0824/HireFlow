@@ -1,89 +1,123 @@
-/* Navbar container */
+/* Navigation bar */
 nav {
-  background-color: #1e1e1e; /* Dark background similar to Pornhub's */
-  padding: 15px 20px; /* Add padding to navbar */
-  color: white; /* White text */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 18px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allow navbar items to wrap on small screens */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-normal);
 }
 
-/* Logo styling */
+/* Logo styling with gradient */
 nav .logo {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  flex: 1; /* Take up extra space for logo */
-  color: #ffb200; /* Vibrant yellow for the logo */
+  letter-spacing: 1.5px;
+  background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-/* Unordered list for navigation links */
+/* Navigation link list */
 nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: 20px; /* Increase space between items */
-  justify-content: center;
-  flex: 2; /* Allow the list to take up remaining space */
+  align-items: center;
+  gap: 8px;
 }
 
-/* List item styling */
+/* Navigation items */
 nav ul li {
   display: inline-block;
 }
 
 /* Link styling */
 nav ul li a {
-  color: white; /* White text for links */
+  color: var(--text-secondary);
   text-decoration: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  position: relative;
 }
 
 nav ul li a:hover {
-  background-color: #f1a400; /* Bright yellow/orange on hover */
-  color: white; /* White text on hover */
-  border-radius: 5px; /* Rounded corners for hover effect */
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Button styling for Logout */
+/* Active navigation item indicator styling */
+nav ul li a.active {
+  color: var(--primary);
+}
+
+/* Logout Button & Action links */
 nav .nav-link {
-  color: white;
-  background-color: #eb5b00; /* Bright orange for logout */
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transition: var(--transition-fast);
 }
 
 nav .nav-link:hover {
-  background-color: #f1a400; /* Darker orange on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--primary-glow);
+  filter: brightness(1.1);
+}
+
+/* Specific red tone for logout button */
+nav button.nav-link {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.4));
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
+}
+
+nav button.nav-link:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.5));
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
   nav ul {
-    flex-direction: column; /* Stack the items vertically on small screens */
-    gap: 10px; /* Reduce space between items */
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
   }
 
-  nav ul li {
-    text-align: center; /* Center the items when stacked */
-  }
-
-  nav .logo {
-    flex: 1 100%; /* Allow logo to take full width */
-    text-align: center; /* Center the logo */
+  nav ul li a {
+    font-size: 14px;
+    padding: 6px 12px;
   }
 
   nav .nav-link {
-    width: 100%; /* Make logout button full width on small screens */
-    text-align: center; /* Center text in the button */
+    width: auto;
+    text-align: center;
   }
 }

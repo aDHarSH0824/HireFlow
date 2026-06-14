@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../App'; // Import AuthContext
+import API_URL from '../config'; // Import API_URL
 import "../styles/PostJobPage.css";
 
 const PostJobPage = () => {
@@ -34,7 +35,7 @@ const PostJobPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:80/phpdbms/HireWay/hireway/api/post_job.php",
+                `${API_URL}/post_job.php`,
                 formData,
                 { headers: { "Content-Type": "application/json" } }
             );

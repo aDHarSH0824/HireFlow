@@ -4,10 +4,13 @@ import "../styles/categories.css";
 const Categories = () => {
   const categories = ["Banking", "Work From Home", "HR", "Sales", "Accounting", "Customer Support"];
   return (
-    <div className="categories">
-      {categories.map((category, index) => (
-        <div className="category-item" key={index}>{category}</div>
-      ))}
+    <div className="categories-container">
+      <div className="categories-title">Browse jobs by category</div>
+      <div className="categories">
+        {categories.map((category, index) => (
+          <div className="category-item" key={index}>{category}</div>
+        ))}
+      </div>
     </div>
   );
 };

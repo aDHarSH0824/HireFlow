@@ -30,10 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user) {
             if (password_verify($password, $user['password'])) {
+                // Generate JWT token
+                include_once './auth_helper.php';
+                $token = AuthHelper::generateToken([
+                    'id' => $user['id'],
+                    'email' => $user['email'],
+                    'role' => $user['role']
+                ]);
+
                 // Login successful
                 echo json_encode([
                     'status' => 1,
                     'message' => 'Login successful',
+                    'token' => $token,
                     'user' => [
                         'id' => $user['id'],
                         'name' => $user['name'],

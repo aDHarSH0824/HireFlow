@@ -9,12 +9,19 @@ $connection = new Database();
 $db = $connection->getConnection();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Collect input data
-    $userName = $_POST['userName'];
-    $email = $_POST['email'];
-    $employer_email=$_POST['employer_email'];
-    $jobTitle = $_POST['jobTitle'];
-    $companyName = $_POST['companyName'];
+    // Collect input data safely
+    $userName = $_POST['userName'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $employer_email = $_POST['employer_email'] ?? '';
+    $jobTitle = $_POST['jobTitle'] ?? '';
+    $companyName = $_POST['companyName'] ?? '';
+
+    // Validate inputs
+    if (empty($userName) || empty($email) || empty($employer_email) || empty($jobTitle) || empty($companyName)) {
+        echo json_encode(['status' => 0, 'message' => 'All fields are required.']);
+        exit;
+    }
+
     // Check if a resume file was uploaded
     if (isset($_FILES['resume'])) {
         $resume = $_FILES['resume'];
@@ -22,6 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resumeTmpName = $resume['tmp_name'];
         $resumeSize = $resume['size'];
         $resumeError = $resume['error'];
+
+        // Enforce file size limit (5MB max)
+        if ($resumeSize > 5 * 1024 * 1024) {
+            echo json_encode(['status' => 0, 'message' => 'Resume exceeds the maximum 5MB size limit.']);
+            exit;
+        }
 
         // Validate file upload
         if ($resumeError === 0) {

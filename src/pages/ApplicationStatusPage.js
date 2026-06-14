@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../App'; // Import AuthContext for dynamic email
+import API_URL from '../config'; // Import API_URL
 import "../styles/JobSeekerDashboard.css"; // Add your custom styles for the page
 
 const JobSeekerDashboard = () => {
@@ -16,7 +17,7 @@ const JobSeekerDashboard = () => {
           setMessage('User is not logged in');
           return;
         }
-        const response = await axios.get(`http://localhost:80/phpdbms/HireWay/hireway/api/applications.php?user_email=${userEmail}`);
+        const response = await axios.get(`${API_URL}/applications.php?user_email=${userEmail}`);
         if (response.data.status === 1) {
           setApplications(response.data.applications);
         } else {

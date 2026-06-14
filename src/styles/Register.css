@@ -1,88 +1,130 @@
-/* Register.css */
+/* Register Page styling */
 .register-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f8f9fa; /* Light grey background */
-  font-family: Arial, sans-serif;
+  min-height: calc(100vh - 80px);
+  padding: 40px 20px;
+  background-color: var(--bg-primary);
 }
 
-.container {
-  background: #fff; /* White background */
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  max-width: 400px;
+/* Glassmorphic Container */
+.register-page .container {
+  max-width: 440px;
   width: 100%;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 1.5rem;
-  color: #333; /* Dark text */
+.register-page .container h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #fff, var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.message {
-  margin-bottom: 1rem;
-  color: green;
-  font-size: 0.9rem;
+.register-page .message {
+  padding: 12px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-sm);
+  color: var(--accent-emerald);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
-.input-group {
-  margin-bottom: 1rem;
+/* Form input group */
+.register-page .input-group {
+  margin-bottom: 24px;
   text-align: left;
 }
 
-label {
+.register-page .input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
   display: block;
-  font-size: 0.9rem;
-  color: #555; /* Medium-dark text */
-  margin-bottom: 0.5rem;
 }
 
-input, select {
+.register-page .input-group input,
+.register-page .input-group select {
   width: 100%;
-  padding: 0.8rem;
-  font-size: 0.9rem;
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
   outline: none;
-  transition: border-color 0.2s;
 }
 
-input:focus, select:focus {
-  border-color: #007bff; /* Focus blue */
+/* Select element specific */
+.register-page .input-group select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
-.btn {
-  display: inline-block;
+.register-page .input-group input:focus,
+.register-page .input-group select:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Submit Button */
+.register-page button.btn {
   width: 100%;
-  padding: 0.8rem;
-  font-size: 1rem;
-  background-color: #007bff; /* Primary blue */
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
-  border: none;
-  border-radius: 4px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background-color 0.2s;
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transition: var(--transition-fast);
+  margin-top: 10px;
 }
 
-.btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.register-page button.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--primary-glow);
+  filter: brightness(1.1);
 }
 
-.text-muted {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: #6c757d; /* Muted text */
+.register-page button.btn:active {
+  transform: translateY(0);
 }
 
-.text-muted a {
-  color: #007bff;
+/* Bottom Nav options */
+.register-page .text-muted {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.register-page .text-muted a {
+  color: var(--primary);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.register-page .text-muted a:hover {
+  color: var(--accent-cyan);
   text-decoration: none;
-}
-
-.text-muted a:hover {
-  text-decoration: underline;
 }

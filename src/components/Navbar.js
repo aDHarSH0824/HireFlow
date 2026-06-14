@@ -34,11 +34,17 @@ import { AuthContext } from '../App'; // Import AuthContext
 import "../styles/nav.css";
 
 const Navbar = () => {
-    const { isLoggedIn, setIsLoggedIn, userRole } = useContext(AuthContext);
+    const { isLoggedIn, setIsLoggedIn, userRole, setUserRole, setUserEmail } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
         setIsLoggedIn(false); // Update login state
+        if (setUserRole) setUserRole('');
+        if (setUserEmail) setUserEmail('');
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('token'); // Clear token
         navigate('/login'); // Redirect to login page
     };
 
@@ -47,15 +53,15 @@ const Navbar = () => {
             <div className="logo">HireWay</div>
             <ul>
                 <li><Link to="/JOBS">Jobs</Link></li>
-                {isLoggedIn && userRole == 'job_seeker' && (
+                {isLoggedIn && userRole === 'job_seeker' && (
                     <React.Fragment>
                                        <li><Link to="/application-status">Application Status</Link></li>
                     </React.Fragment>
                 )}
-                {isLoggedIn && userRole == 'job_poster' && (
+                {isLoggedIn && userRole === 'job_poster' && (
                     <React.Fragment>
                         <li><Link to="/post-job">Post a Job</Link></li>
-                        <li><Link to="/Job-poster-dashboard">Verify Applications</Link></li> {/* New link added */}
+                        <li><Link to="/job-poster-dashboard">Verify Applications</Link></li> {/* Fixed casing */}
                     </React.Fragment>
                 )}
             </ul>

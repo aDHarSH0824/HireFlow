@@ -1,13 +1,51 @@
-/* Company Logos Section */
+/* Featured Companies Section styling */
+.companies-container {
+  padding: 50px 5%;
+  background-color: var(--bg-primary);
+  text-align: center;
+  overflow: hidden;
+}
+
+.companies-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
 .companies {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.companies img {
+  height: 38px;
+  filter: grayscale(100%) brightness(0.8) contrast(1.2);
+  opacity: 0.5;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.companies img:hover {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .companies {
     gap: 20px;
+    justify-content: center;
   }
   
   .companies img {
-    height: 40px;
-    opacity: 0.8;
+    height: 30px;
   }
-  
+}

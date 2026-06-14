@@ -3,12 +3,13 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../App'; // Import AuthContext
+import API_URL from '../config'; // Import API_URL
 import "../styles/LoginPage.css";
 
 const LoginPage = () => {
     const [inputs, setInputs] = useState({ email: '', password: '' });
     const [message, setMessage] = useState('');
-    const { setIsLoggedIn, setUserRole,setUserEmail } = useContext(AuthContext); // Access AuthContext
+    const { setIsLoggedIn, setUserRole, setUserEmail } = useContext(AuthContext); // Access AuthContext
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -20,7 +21,7 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:80/phpdbms/HireWay/hireway/api/login.php",
+                `${API_URL}/login.php`,
                 inputs,
                 { headers: { "Content-Type": "application/json" } }
             );
@@ -31,6 +32,13 @@ const LoginPage = () => {
 
                 setUserRole(response.data.user.role); 
                 setUserEmail(response.data.user.email);// Update user role
+
+                // Store in localStorage for persistent login session
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', response.data.user.role);
+                localStorage.setItem('userEmail', response.data.user.email);
+                localStorage.setItem('token', response.data.token); // Store authentication token
+
                 setTimeout(() => {
                     navigate('/'); // Redirect to main page
                 }, 2000);

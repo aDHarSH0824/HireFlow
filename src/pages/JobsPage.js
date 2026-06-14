@@ -54,6 +54,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import API_URL from '../config'; // Import API_URL
 import "../styles/JobsPage.css";
 
 const JobsPage = () => {
@@ -64,7 +65,7 @@ const JobsPage = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('http://localhost:80/phpdbms/HireWay/hireway/api/jobs.php');
+        const response = await axios.get(`${API_URL}/jobs.php`);
         if (Array.isArray(response.data)) {
           setJobs(response.data); // Set jobs state with fetched job listings
         }
@@ -88,7 +89,7 @@ const JobsPage = () => {
         ) : (
           jobs.map((job) => (
             <div className="job-card" key={job.id}>
-              <h3>{job.job_title}</h3>
+              <h3>{job.title}</h3> {/* Fixed: changed job.job_title to job.title */}
               <p><strong>Company:</strong> {job.company_name}</p>
               <p><strong>Location:</strong> {job.location}</p>
               <p><strong>Salary:</strong> {job.salary}</p>

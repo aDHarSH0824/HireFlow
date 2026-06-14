@@ -1,14 +1,26 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Content-Type: application/json");
 
 include './DbConnection.php';
+include './auth_helper.php';
+
+// Authenticate request
+$user = AuthHelper::authenticate();
 
 $objDb = new Database();
 $conn = $objDb->getConnection();
 
 $posterEmail = $_GET['poster_email'] ?? '';
+
+// Verify poster ownership
+if ($user['role'] !== 'job_poster' || $user['email'] !== $posterEmail) {
+    header('HTTP/1.0 403 Forbidden');
+    echo json_encode(['status' => 0, 'message' => 'Unauthorized access to applications.']);
+    exit;
+}
 
 if ($posterEmail) {
     $sql = "SELECT * FROM job_applications WHERE poster_email = :posterEmail";

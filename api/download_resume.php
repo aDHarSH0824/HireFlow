@@ -1,9 +1,20 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Content-Type: application/json");
 
 include './DbConnection.php';
+include './auth_helper.php';
+
+// Authenticate request
+$user = AuthHelper::authenticate();
+
+if ($user['role'] !== 'job_poster') {
+    header('HTTP/1.0 403 Forbidden');
+    echo json_encode(['status' => 0, 'message' => 'Unauthorized. Only job posters can download resumes.']);
+    exit;
+}
 
 // Create a database connection
 $connection = new Database();
@@ -13,6 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get application ID and poster email from the query parameters
     $applicationId = $_GET['application_id'] ?? '';
     $posterEmail = $_GET['poster_email'] ?? '';
+
+    // Verify authorized user is the one associated with the application download
+    if ($user['email'] !== $posterEmail) {
+        header('HTTP/1.0 403 Forbidden');
+        echo json_encode(['status' => 0, 'message' => 'Unauthorized email context.']);
+        exit;
+    }
 
     if ($applicationId && $posterEmail) {
         // Fetch application details for the given application ID and poster email

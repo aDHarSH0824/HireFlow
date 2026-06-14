@@ -1,9 +1,20 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Methods: GET, OPTIONS");
+header("Content-Type: application/json");
 
 include './DbConnection.php';
+include './auth_helper.php';
+
+// Authenticate request
+$user = AuthHelper::authenticate();
+
+if ($user['role'] !== 'job_seeker') {
+    header('HTTP/1.0 403 Forbidden');
+    echo json_encode(['status' => 0, 'message' => 'Unauthorized. Only job seekers can view their applications.']);
+    exit;
+}
 
 $objDb = new Database();
 $conn = $objDb->getConnection();
@@ -11,6 +22,13 @@ $conn = $objDb->getConnection();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the email from the query parameter
     $userEmail = isset($_GET['user_email']) ? $_GET['user_email'] : '';
+
+    // Verify authorized user context
+    if ($user['email'] !== $userEmail) {
+        header('HTTP/1.0 403 Forbidden');
+        echo json_encode(['status' => 0, 'message' => 'Unauthorized user context.']);
+        exit;
+    }
 
     if (empty($userEmail)) {
         echo json_encode(['status' => 0, 'message' => 'User email is required']);

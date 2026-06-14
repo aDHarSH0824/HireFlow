@@ -1,15 +1,32 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 
 include './DbConnection.php';
+include './auth_helper.php';
+
+// Authenticate request
+$user = AuthHelper::authenticate();
+
+if ($user['role'] !== 'job_poster') {
+    header('HTTP/1.0 403 Forbidden');
+    echo json_encode(['status' => 0, 'message' => 'Unauthorized. Only job posters can post jobs.']);
+    exit;
+}
 
 $objDb = new Database();
 $conn = $objDb->getConnection();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
+
+    // Verify authorized user context
+    if ($user['email'] !== ($data['poster_email'] ?? '')) {
+        header('HTTP/1.0 403 Forbidden');
+        echo json_encode(['status' => 0, 'message' => 'Unauthorized poster context.']);
+        exit;
+    }
 
     // Validate inputs
     if (
