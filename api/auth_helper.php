@@ -86,6 +86,8 @@ class AuthHelper {
 
         $token = self::getBearerToken();
         if (!$token) {
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: Content-Type, Authorization");
             header('HTTP/1.0 401 Unauthorized');
             header('Content-Type: application/json');
             echo json_encode(['status' => 0, 'message' => 'Access token required']);
@@ -93,6 +95,8 @@ class AuthHelper {
         }
         $payload = self::verifyToken($token);
         if (!$payload) {
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: Content-Type, Authorization");
             header('HTTP/1.0 401 Unauthorized');
             header('Content-Type: application/json');
             echo json_encode(['status' => 0, 'message' => 'Invalid or expired token']);

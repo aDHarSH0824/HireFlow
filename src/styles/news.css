@@ -99,6 +99,7 @@
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 20px;
+  white-space: pre-line;
 }
 
 .news-detail p:last-child {

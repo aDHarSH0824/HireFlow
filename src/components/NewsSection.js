@@ -26,7 +26,7 @@ const NewsSection = () => {
       <div className="news-cards">
         {news.map((item) => (
           <div className="news-card" key={item.id}>
-            <Link to={`/news/${item.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/news/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <h3>{item.title}</h3>
             </Link>
             <p>{item.description}</p>

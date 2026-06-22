@@ -1,33 +1,3 @@
-// import React from "react";
-// import { Link } from 'react-router-dom';
-// import "../styles/nav.css";
-
-// const Navbar = () => {
-//   return (
-//     <nav>
-//       <div className="logo">HireWay</div>
-//       <ul>
-//       <li><Link to="/JOBS">Jobs</Link></li>
-//       <li><Link to="/application-status">Application Status</Link></li>
-//         <li><Link to="/post-job">Post a Job</Link></li>
-//       </ul>
-//       <div>
-//       <ul>
-//         <li>
-//           <Link to="/login" className="nav-link">Login</Link>
-//         </li>
-//         <li>
-//           <Link to="/register" className="nav-link">Register</Link>
-//         </li>
-//       </ul>
-//             </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
 import React, { useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App'; // Import AuthContext

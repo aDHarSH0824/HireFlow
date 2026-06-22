@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # uploads directory containing user files
-/api/uploads/
+/api/uploads/*
+!/api/uploads/.gitkeep

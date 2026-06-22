@@ -39,41 +39,57 @@ HireFlow is a state-of-the-art job portal web application featuring a stunning R
 
 ## Getting Started
 
-### Prerequisites
-- Node.js & npm
-- PHP Web Server (e.g., XAMPP, WAMP, LAMP)
-- MySQL Database
+### 1. Prerequisites
+- **Node.js** & **npm**
+- **Apache Web Server** (with PHP support enabled)
+- **MySQL Database Server**
 
-### Frontend Installation
-
-1. Navigate to the project root directory and install dependencies:
+### 2. Frontend Installation & Startup
+1. Navigate to the project root directory and install npm packages:
    ```bash
    npm install
    ```
-
-2. Create a `.env` file in the root directory and specify the API base URL:
+2. Create a `.env` file in the root directory and specify your backend API base URL:
    ```env
    REACT_APP_API_URL=http://localhost:80/phpdbms/HireWay/hireway/api
    ```
-
-3. Launch the React development server:
+3. Start the React development server:
    ```bash
    npm start
    ```
-   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   Open [http://localhost:3000](http://localhost:3000) to access the app in your browser.
 
-4. To bundle the app for production:
+### 3. Local Backend Setup (Ubuntu/Debian)
+1. Install Apache, PHP, MySQL, and the Apache PHP integration module:
    ```bash
-   npm run build
+   sudo apt-get update
+   sudo apt-get install -y php php-mysql mysql-server php-xml php-mbstring libapache2-mod-php
    ```
-
-### Backend Installation
-
-1. Place the `api/` folder in your local web server directory (e.g., `htdocs/` for XAMPP).
-2. Configure database connection parameters in [dbconnection.php](api/dbconnection.php).
-3. Ensure the server has read/write permissions for the resume upload folder:
+2. Start the MySQL service and set up your database and user privileges:
    ```bash
-   chmod 755 api/uploads
+   sudo systemctl start mysql
+   sudo mysql -u root -e "CREATE DATABASE IF NOT EXISTS hireway;"
+   sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
+   ```
+3. Import the database schema from the project root:
+   ```bash
+   sudo mysql -u root hireway < database_schema.sql
+   ```
+4. Adjust directory search permissions on your home directory so that Apache's `www-data` user can follow symlinks to your project folder:
+   ```bash
+   chmod o+x /home/harsh
+   chmod o+x /home/harsh/Documents
+   chmod o+x /home/harsh/Documents/HireFlow
+   chmod -R o+rX /home/harsh/Documents/HireFlow/api
+   ```
+5. Create the Apache folder structure and create a symlink to your development API directory so edits are immediately live:
+   ```bash
+   sudo mkdir -p /var/www/html/phpdbms/HireWay/hireway
+   sudo ln -sfn /home/harsh/Documents/HireFlow/api /var/www/html/phpdbms/HireWay/hireway/api
+   ```
+6. Restart the Apache server to load the configurations:
+   ```bash
+   sudo systemctl restart apache2
    ```
 
 ---
