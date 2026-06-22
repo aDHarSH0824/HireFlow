@@ -2,7 +2,7 @@
 
 HireFlow is a state-of-the-art job portal web application featuring a stunning React frontend and a secure PHP API backend. It connects job seekers with employers, offering interactive application tracking, resume uploads, and robust candidate management.
 
-**Live Application:** [https://hire-flow-eight.vercel.app/](https://hire-flow-eight.vercel.app/)
+**Live Application:** [https://hire-flow-uefl.vercel.app/](https://hire-flow-uefl.vercel.app/)
 **Live API Endpoint:** [https://hireflow-api-wt5b.onrender.com/](https://hireflow-api-wt5b.onrender.com/)
 
 ---
