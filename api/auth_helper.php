@@ -1,6 +1,5 @@
 <?php
 class AuthHelper {
-    private static $secret = "hireflow_super_secret_key_12345!";
 
     private static function base64UrlEncode($data) {
         return str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($data));
@@ -15,7 +14,10 @@ class AuthHelper {
     }
 
     public static function generateToken($payload) {
-        $secret = getenv('JWT_SECRET') ?: self::$secret;
+        $secret = getenv('JWT_SECRET');
+        if (empty($secret)) {
+            throw new Exception("JWT_SECRET environment variable is not configured.");
+        }
         $headers = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
         $headers_encoded = self::base64UrlEncode($headers);
         
@@ -30,7 +32,10 @@ class AuthHelper {
     }
 
     public static function verifyToken($token) {
-        $secret = getenv('JWT_SECRET') ?: self::$secret;
+        $secret = getenv('JWT_SECRET');
+        if (empty($secret)) {
+            return null;
+        }
         $parts = explode('.', $token);
         if (count($parts) !== 3) {
             return null;

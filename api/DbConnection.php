@@ -17,15 +17,20 @@ class Database {
             $this->username = getenv('DB_USER') ?: "root";
             $this->password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : "";
         } else {
-            $this->host = getenv('DB_HOST') ?: "sql111.infinityfree.com";
-            $this->db_name = getenv('DB_NAME') ?: "if0_42174750_hireFlow";
-            $this->username = getenv('DB_USER') ?: "if0_42174750";
-            $this->password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : "Webscope123";
+            // Strictly fetch credentials from environment variables in production
+            $this->host = getenv('DB_HOST');
+            $this->db_name = getenv('DB_NAME');
+            $this->username = getenv('DB_USER');
+            $this->password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : null;
         }
     }
 
     public function getConnection() {
         $this->conn = null;
+        if (empty($this->host) || empty($this->db_name) || empty($this->username)) {
+            echo "Database configuration error: Missing environment variables.";
+            return null;
+        }
         try {
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->exec("set names utf8");
