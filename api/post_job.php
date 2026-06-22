@@ -4,7 +4,11 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 
 include './DbConnection.php';
+include './rate_limit_helper.php';
 include './auth_helper.php';
+
+// Apply rate limit: max 5 requests per 60 seconds
+RateLimiter::check('post_job', 5, 60);
 
 // Authenticate request
 $user = AuthHelper::authenticate();

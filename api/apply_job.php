@@ -1,9 +1,14 @@
 <?php
 include './DbConnection.php';
+include './rate_limit_helper.php';
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json");
+
+// Apply rate limit: max 10 requests per 60 seconds
+RateLimiter::check('apply_job', 10, 60);
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;

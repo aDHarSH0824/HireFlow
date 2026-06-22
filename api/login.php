@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 include './DbConnection.php';
+include './rate_limit_helper.php';
+
+// Apply rate limit: max 10 requests per 60 seconds
+RateLimiter::check('login', 10, 60);
 
 $objDb = new Database();
 $conn = $objDb->getConnection();
