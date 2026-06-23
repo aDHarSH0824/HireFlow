@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../App'; // Import AuthContext
-import API_URL from '../config'; // Import API_URL
-import "../styles/PostJobPage.css";
+import { AuthContext } from '../../App'; // Import AuthContext
+import API_URL from '../../config'; // Import API_URL
+import "./PostJobPage.css";
 
 const PostJobPage = () => {
     const { userEmail } = useContext(AuthContext); // Get user email from context

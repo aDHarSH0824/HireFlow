@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-include './DbConnection.php';
-include './rate_limit_helper.php';
+include './includes/DbConnection.php';
+include './includes/rate_limit_helper.php';
 
 // Apply rate limit: max 10 requests per 60 seconds
 RateLimiter::check('login', 10, 60);

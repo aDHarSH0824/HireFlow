@@ -5,8 +5,8 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Expose-Headers: Content-Disposition");
 header("Content-Type: application/json");
 
-include './DbConnection.php';
-include './auth_helper.php';
+include './includes/DbConnection.php';
+include './includes/auth_helper.php';
 
 // Authenticate request
 $user = AuthHelper::authenticate();

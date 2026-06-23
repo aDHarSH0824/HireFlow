@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/categories.css";
+import "./Categories.css";
 
 const Categories = () => {
   const categories = ["Banking", "Work From Home", "HR", "Sales", "Accounting", "Customer Support"];

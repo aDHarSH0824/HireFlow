@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App'; // Import AuthContext
-import "../styles/nav.css";
+import { AuthContext } from '../../App'; // Import AuthContext
+import "./Navbar.css";
 
 const Navbar = () => {
     const { isLoggedIn, setIsLoggedIn, userRole, setUserRole, setUserEmail } = useContext(AuthContext);

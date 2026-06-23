@@ -2,9 +2,9 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../App'; // Import AuthContext
-import API_URL from '../config'; // Import API_URL
-import "../styles/LoginPage.css";
+import { AuthContext } from '../../App'; // Import AuthContext
+import API_URL from '../../config'; // Import API_URL
+import "./LoginPage.css";
 
 const LoginPage = () => {
     const [inputs, setInputs] = useState({ email: '', password: '' });

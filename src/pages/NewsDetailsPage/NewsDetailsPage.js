@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import '../styles/news.css'; // Internal styling
+import './NewsDetailsPage.css'; // Internal styling
 
 const newsDetails = {
     1: {

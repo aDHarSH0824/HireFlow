@@ -4,8 +4,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../config'; // Import API_URL
-import "../styles/Register.css";
+import API_URL from '../../config'; // Import API_URL
+import "./RegisterPage.css";
 
 const RegisterPage = () => {
     // const [inputs, setInputs] = useState({ name: '', email: '', password: '' });

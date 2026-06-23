@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import API_URL from '../config'; // Import API_URL
-import "../styles/JobPosterDashboard.css"; // Add your CSS styles
-import { AuthContext } from '../App'; // Import AuthContext
+import API_URL from '../../config'; // Import API_URL
+import "./JobPosterDashboard.css"; // Add your CSS styles
+import { AuthContext } from '../../App'; // Import AuthContext
 
 const JobPosterDashboard = () => {
   const { userEmail } = useContext(AuthContext); // Get the email from context

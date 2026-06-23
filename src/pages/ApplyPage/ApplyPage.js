@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../config'; // Import API_URL
-import "../styles/ApplyPage.css";
+import API_URL from '../../config'; // Import API_URL
+import "./ApplyPage.css";
 
 const ApplyPage = () => {
   const { jobId } = useParams();

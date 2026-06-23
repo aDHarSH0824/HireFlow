@@ -4,19 +4,19 @@ import React, { useState, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import ApplyPage from './pages/ApplyPage';
-import PostJobPage from './pages/PostJobPage';
-import JobsPage from './pages/JobsPage';
-import Navbar from './components/Navbar';
-import MainSection from './components/MainSection'; // Import MainSection
-import NewsSection from './components/NewsSection';
-import CompaniesSection from './components/Companies';
-import CategoriesSection from './components/Categories';
-import ApplicationStatusPage from './pages/ApplicationStatusPage';
-import JobPosterDashboard from './pages/JobPosterDashboard';
-import NewsDetailPage from './pages/NewsDetailsPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ApplyPage from './pages/ApplyPage/ApplyPage';
+import PostJobPage from './pages/PostJobPage/PostJobPage';
+import JobsPage from './pages/JobsPage/JobsPage';
+import Navbar from './components/Navbar/Navbar';
+import MainSection from './components/MainSection/MainSection'; // Import MainSection
+import NewsSection from './components/NewsSection/NewsSection';
+import CompaniesSection from './components/Companies/Companies';
+import CategoriesSection from './components/Categories/Categories';
+import ApplicationStatusPage from './pages/ApplicationStatusPage/ApplicationStatusPage';
+import JobPosterDashboard from './pages/JobPosterDashboard/JobPosterDashboard';
+import NewsDetailPage from './pages/NewsDetailsPage/NewsDetailsPage';
 
 // Configure Axios request interceptor globally
 axios.interceptors.request.use(

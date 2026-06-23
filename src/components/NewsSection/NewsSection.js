@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import '../styles/news.css';
+import './NewsSection.css';
 
 const NewsSection = () => {
   const [news, setNews] = useState([]);

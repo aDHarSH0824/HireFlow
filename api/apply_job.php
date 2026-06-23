@@ -1,6 +1,6 @@
 <?php
-include './DbConnection.php';
-include './rate_limit_helper.php';
+include './includes/DbConnection.php';
+include './includes/rate_limit_helper.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
